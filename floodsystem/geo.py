@@ -23,3 +23,13 @@ def stations_by_distance(stations, p):
         distances_list = floodsystem.utils.sorted_by_key(distances, 1)
     return distances_list
 
+def stations_within_radius(stations, centre, r):
+    """This function returns a list of all stations (type MonitoringStation) 
+    within radius r of a geographic coordinate x."""
+    list_stations = []
+    for n in range(len(stations)):
+        radius = haversine(stations[n].coord, centre)
+        if radius <= r:
+            list_stations.append(stations[n].name)
+            list_stations.sort()
+    return list_stations
