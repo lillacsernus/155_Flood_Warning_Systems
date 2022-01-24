@@ -5,5 +5,21 @@
 geographical data.
 
 """
+from .station import MonitoringStation
+import floodsystem.utils  # noqa
 
-from .utils import sorted_by_key  # noqa
+from haversine import haversine
+
+
+
+def stations_by_distance(stations, p):
+    """This function returns a list of (station, distance) tuples 
+    where distance is the distance from coordinate p"""
+    distances = []
+    for n in range(len(stations)):
+        distance = haversine(stations[n].coord, p)
+        tuple = (stations[n].name, distance)
+        distances.append(tuple)
+        distances_list = floodsystem.utils.sorted_by_key(distances, 1)
+    return distances_list
+
