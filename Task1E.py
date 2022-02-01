@@ -4,7 +4,7 @@ from floodsystem.utils import sorted_by_key
 def run():
     stations=build_station_list()
     z=floodsystem.geo.rivers_by_station_number(stations,N)
-    print z
+    print (z)
 
 
 
