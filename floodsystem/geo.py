@@ -54,6 +54,7 @@ def stations_by_river(stations):
     return y
 
 def rivers_by_station_number(stations,N):
+    """This function returns a list of rivers with stations above a set threshold N"""
     hi = {}
     for n in range(len(stations)):
         if stations[n].river not in hi:
