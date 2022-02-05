@@ -6,7 +6,9 @@ geographical data.
 
 """
 from .station import MonitoringStation
-from floodsystem.utils import sorted_by_key # noqa
+import floodsystem.utils  # noqa
+
+from datetime import datetime, timedelta
 
 from haversine import haversine
 
@@ -40,8 +42,7 @@ def rivers_with_station(stations):
     x = set()
     for n in stations:
         x.add(n.river)
-    x_sorted = sorted(x)
-    return x_sorted
+    return x
 
 def stations_by_river(stations):
     """This function returns a Python dict (dictionary) that maps river 
@@ -52,7 +53,7 @@ def stations_by_river(stations):
             y[n.river] = [n.name]
         else: y[n.river].append(n.name)
     return y
-
+    
 def rivers_by_station_number(stations,N):
     """This function returns a list of rivers with stations above a set threshold N"""
     hi = {}
@@ -62,17 +63,14 @@ def rivers_by_station_number(stations,N):
         else:
             hi[stations[n].river] += 1
     hello = list(hi.items())
-    sorted_by_key(hello, 1, reverse = True)
+    floodsystem.utils.sorted_by_key(hello, 1, reverse = True)
     sup = hello[:N]
-    gg = hello(N:)
+    gg = hello[N:]
     for i in range(len(gg)):
         if gg[i,1] == sup[N,1]:
             sup.append(gg[i])
         else:
             pass
     return sup
-    
 
 
-    
-    
