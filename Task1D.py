@@ -6,7 +6,7 @@ def run():
 
     stations = build_station_list()
 
-    z = floodsystem.geo.rivers_with_station(stations)
+    z = sorted(floodsystem.geo.rivers_with_station(stations))
 
     print("There are" + "  " + str(len(z)) + "  " + "rivers with at least one monitoring station.")
 
