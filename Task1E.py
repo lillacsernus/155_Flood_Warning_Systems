@@ -5,6 +5,12 @@ def run():
     stations=build_station_list()
     z=floodsystem.geo.rivers_by_station_number(stations,9)
     print (z)
+def test_rivers_by_number():
+    z = dict(z)
+    assert z['Thames']== 55
+
+    
+
 
 
 

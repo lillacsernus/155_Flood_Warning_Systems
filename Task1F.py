@@ -7,7 +7,9 @@ def run():
     stations=build_station_list()
     z = inconsistent_typical_range_stations(stations)
     return z
-
+def test_inconsistent_range():
+    a = z[0]
+    assert a == 'Addlestone'
 
 
 
