@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: MIT
 """Unit test for the station module"""
 
+from sympy import stationary_points
 from floodsystem.station import MonitoringStation
 import floodsystem.station
 from floodsystem.stationdata import build_station_list
@@ -28,8 +29,32 @@ def test_create_monitoring_station():
     assert s.river == river
     assert s.town == town
 
+def test_typical_range_consistent_one():
+    s_id = "test_id"
+    m_id = "test_id"
+    label = "station"
+    coord = (1, 1)
+    trange = (4.0, 1.0)
+    river = "river x"
+    town = "town x"
+    x = MonitoringStation(s_id, m_id, coord, river, town, label, trange)
+    y = MonitoringStation.typical_range_consistent(x)
+    assert y == False
+
+def test_typical_range_consistent_two():
+    s_id = "test_id"
+    m_id = "test_id"
+    label = "station"
+    coord = (1, 1)
+    trange = None
+    river = "river x"
+    town = "town x"
+    x = MonitoringStation(s_id, m_id, coord, river, town, label, trange)
+    y = MonitoringStation.typical_range_consistent(x)
+    assert y == False
 
 def test_inconsistent_typical_range_stations():
     stations = build_station_list()
     x = floodsystem.station.inconsistent_typical_range_stations(stations)
     assert len(x) == 28
+
