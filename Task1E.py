@@ -7,10 +7,8 @@ def run():
     z=floodsystem.geo.rivers_by_station_number(stations,N)
     print(z)
     z=floodsystem.geo.rivers_by_station_number(stations,9)
-    print (z)
-def test_rivers_by_number():
-    z = dict(z)
-    assert z['Thames']== 55
+    print(z)
+
 
     
 
@@ -18,6 +16,6 @@ def test_rivers_by_number():
 
 
 if __name__ == "__main__":
-    print("*** Task 1D: CUED Part IA Flood Warning System ***")
+    print("*** Task 1E: CUED Part IA Flood Warning System ***")
     run()
    
