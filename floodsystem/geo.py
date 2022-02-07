@@ -63,8 +63,8 @@ def rivers_by_station_number(stations,N):
             hi[stations[n].river] = hi[stations[n].river] + 1
     hello = list(hi.items())
     hello.sort(key = lambda x: x[1], reverse = True)
-    y = x[:N]
-    g = x[N:]
+    y = hello[:N]
+    g = hello[N:]
 
     for i in range(len(g)):
         if g[i][1] == y[N-1][1]:
