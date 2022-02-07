@@ -60,17 +60,12 @@ def rivers_by_station_number(stations,N):
         if stations[n].river not in hi:
             hi.update({stations[n].river : 1})
         else:
-            hi[stations[n].river] += 1
+            hi[stations[n].river] = hi[stations[n].river] + 1
     hello = list(hi.items())
-    sorted_by_key(hello, 1, reverse = True)
-    sup = hello[:N]
-    gg = hello[N:]
-    for i in range(len(gg)):
-        if gg[i,1] == sup[N,1]:
-            sup.append(gg[i])
-        else:
-            pass
-    return sup
+    x = sorted_by_key(hello, 1, reverse = True)
+    
+    
+    return x[:N]
     
 
 
