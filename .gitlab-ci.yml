@@ -4,7 +4,7 @@ test:
   script:
   # Install Python packages required to run code. Add any additional
   # packages your code needs require here.
-  - pip install dateutils flake8 matplotlib numpy haversine pytest requests
+  - pip install dateutils flake8 matplotlib numpy haversine pytest requests sympy
   
   
 
