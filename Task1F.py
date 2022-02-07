@@ -6,7 +6,7 @@ from floodsystem.station import inconsistent_typical_range_stations
 def run():
     stations=build_station_list()
     z = inconsistent_typical_range_stations(stations)
-    return z
+    print(z)
 
 
 
