@@ -61,16 +61,16 @@ def rivers_by_station_number(stations,N):
         if stations[n].river not in hi:
             hi.update({stations[n].river : 1})
         else:
-            hi[stations[n].river] += 1
+            hi[stations[n].river] = hi[stations[n].river] + 1
     hello = list(hi.items())
-    floodsystem.utils.sorted_by_key(hello, 1, reverse = True)
-    sup = hello[:N]
-    gg = hello[N:]
-    for i in range(len(gg)):
-        if gg[i,1] == sup[N,1]:
-            sup.append(gg[i])
+    hello.sort(key = lambda x: x[1], reverse = True)
+    y = x[:N]
+    g = x[N:]
+    for i in range(len(g)):
+        if g[i][1] == y[N-1][1]:
+            y.append(g[i])
         else:
             pass
-    return sup
+    return y
 
 

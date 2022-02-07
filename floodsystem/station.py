@@ -39,9 +39,9 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
     def typical_range_consistent(self):
-        if self.typical_range[1]<self.typical_range[0]:
+        if self.typical_range == None:
             return False
-        elif self.typical_range == None:
+        elif self.typical_range[1]<self.typical_range[0]:
             return False
         else:
             return True
@@ -50,7 +50,10 @@ class MonitoringStation:
 def inconsistent_typical_range_stations(stations):
         list=[]
         for n in range(len(stations)):
-            if stations[n].typical_range_consistent == False:
+            if stations[n].typical_range_consistent() == False:
                 list.append(stations[n].name)
-        x = list.sort()
-        return x
+            else:
+                pass
+        list.sort()
+        return list
+        
