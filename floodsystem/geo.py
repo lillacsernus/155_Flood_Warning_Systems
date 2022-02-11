@@ -66,11 +66,21 @@ def rivers_by_station_number(stations,N):
     hello.sort(key = lambda x: x[1], reverse = True)
     y = hello[:N]
     g = hello[N:]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 099056c5dea404370d71646df8421ff69bb5e65e
     for i in range(len(g)):
         if g[i][1] == y[N-1][1]:
             y.append(g[i])
         else:
             pass
+<<<<<<< HEAD
     return y
+=======
+    
+    return y
+    
+>>>>>>> 099056c5dea404370d71646df8421ff69bb5e65e
 
 
