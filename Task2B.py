@@ -15,3 +15,5 @@ def run():
     for n in range(len(z)):
         print("{}, {}".format(z[n][0], z[n][1]))
 
+stations = build_station_list()
+print(stations[1].latest_level)
