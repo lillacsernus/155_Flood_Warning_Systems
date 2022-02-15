@@ -18,9 +18,9 @@ def stations_level_over_threshold(stations, tol):
                 Tuple2 = (stations[n].name, stations[n].relative_water_level())
                 z.append(Tuple2)
     h = sorted_by_key(z,1)
+    h.reverse()
     return h
 
 def stations_highest_rel_level(stations, N):
     AllStations = stations_level_over_threshold(stations, 0)
-    AllStations.reverse()
     return AllStations[:N]
