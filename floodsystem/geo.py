@@ -22,7 +22,7 @@ def stations_by_distance(stations, p):
         distance = haversine(n.coord, p)
         tuple = (n.name, distance)
         distances.append(tuple)
-        distances_list = floodsystem.utils.sorted_by_key(distances, 1)
+        distances_list = sorted_by_key(distances, 1)
     return distances_list
 
 def stations_within_radius(stations, centre, r):

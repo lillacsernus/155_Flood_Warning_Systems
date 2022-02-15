@@ -7,3 +7,7 @@ def run():
     x = stations_highest_rel_level(stations, 8)
     for n in range(len(x)):
         print("{}, {}".format(x[n][0], x[n][1]))
+
+if __name__ == "__main__":
+    print("*** Task 2C: CUED Part IA Flood Warning System ***")
+    run()
