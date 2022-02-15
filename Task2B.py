@@ -17,3 +17,7 @@ def run():
 
 stations = build_station_list()
 print(stations[1].latest_level)
+
+if __name__ == "__main__":
+    print("*** Task 2B: CUED Part IA Flood Warning System ***")
+    run()
