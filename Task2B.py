@@ -7,16 +7,14 @@ from haversine import haversine
 from floodsystem.utils import sorted_by_key
 from floodsystem.flood import stations_level_over_threshold
 from floodsystem.datafetcher import fetch_measure_levels
-
+stations = build_station_list()
+update_water_levels(stations)
 def run():
-    stations = build_station_list()
-    update_water_levels(stations)
     z = stations_level_over_threshold(stations, 0.8)
     for n in range(len(z)):
         print("{}, {}".format(z[n][0], z[n][1]))
 
-stations = build_station_list()
-print(stations[1].latest_level)
+
 
 if __name__ == "__main__":
     print("*** Task 2B: CUED Part IA Flood Warning System ***")
