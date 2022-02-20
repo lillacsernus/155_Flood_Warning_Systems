@@ -5,7 +5,7 @@
 for manipulating/modifying station data
 
 """
-
+from ast import Pass
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
@@ -27,6 +27,7 @@ class MonitoringStation:
         self.river = river
         self.town = town
 
+        self.latest_level = None
 
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
