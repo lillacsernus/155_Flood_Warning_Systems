@@ -1,5 +1,5 @@
 from floodsystem.stationdata import build_station_list
-import floodsystem.plot
+from floodsystem.plot import plot_water_levels
 import floodsystem.flood
 import floodsystem.datafetcher
 import matplotlib.pyplot as plt
@@ -13,13 +13,13 @@ import matplotlib.pyplot as plt
 def run():
     stations = build_station_list()
     update_water_levels(stations)
-    y = floodsystem.flood.stations_highest_rel_level(stations, N=5)
-    print(y)
-    
+    y = floodsystem.flood.stations_highest_rel_level(stations, N=7)
+    z = y[2:]
+    print(z)
     dt = 10
     
     station_list = []
-    for name in y:
+    for name in z:
         station_name = name[0]
     # Find station
         for n in stations:
@@ -27,9 +27,9 @@ def run():
                 station_list.append(n)
     
     
-    for s in range(len(station_list)-1):
+    for s in range(len(station_list)):
         dates, levels = fetch_measure_levels(station_list[s].measure_id, dt=timedelta(days=dt))
-        floodsystem.plot.plot_water_levels(station_list[s], dates, levels)
+        plot_water_levels(station_list[s], dates, levels)
         
     
 
