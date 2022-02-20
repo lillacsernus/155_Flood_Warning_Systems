@@ -22,7 +22,7 @@ def test_stations_within_radius():
 def test_rivers_with_station():
     stations = build_station_list()
     z = floodsystem.geo.rivers_with_station(stations)
-    assert len(z) == 950
+    assert len(z) == 951
 
 
 def test_stations_by_river():
