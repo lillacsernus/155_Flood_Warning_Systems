@@ -1,15 +1,14 @@
 from .utils import sorted_by_key
 from floodsystem.stationdata import build_station_list, update_water_levels
 from pickle import TUPLE1
-from floodsystem.station import MonitoringStation
+from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations
 from haversine import haversine
 
-stations = build_station_list()
-update_water_levels(stations)
+
 
 def stations_level_over_threshold(stations, tol):
     z = []
-    for n in range(len(stations)):
+    for n in range(len(stations)-1):
         x = stations[n].typical_range_consistent()
         if x == True:
             y = stations[n].relative_water_level()
