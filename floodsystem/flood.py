@@ -8,7 +8,7 @@ from haversine import haversine
 
 def stations_level_over_threshold(stations, tol):
     z = []
-    for n in range(len(stations)-1):
+    for n in range(len(stations)):
         x = stations[n].typical_range_consistent()
         if x == True:
             y = stations[n].relative_water_level()

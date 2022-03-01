@@ -1,11 +1,10 @@
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
+import numpy as np
 
 
+def plot_water_levels(stations, dates, levels):
 
-def plot_water_levels(station, dates, levels):
-
-    
     # Plot
     plt.plot(dates, levels)
 
@@ -13,10 +12,11 @@ def plot_water_levels(station, dates, levels):
     plt.xlabel('date')
     plt.ylabel('water level (m)')
     plt.xticks(rotation=45);
-    plt.title(station.name)
-    
-    for n in station.typical_range:
-        plt.axhline(y=n, color='r', linestyle='-')
+    plt.title(stations.name)
+
+    plt.plot(dates, np.full(len(dates), stations.typical_range[0]).tolist(), label = "typical low level")
+    plt.plot(dates, np.full(len(dates), stations.typical_range[1]).tolist(), label = "typical high level")
+
 
     plt.show()
 

@@ -56,5 +56,5 @@ def test_typical_range_consistent_two():
 def test_inconsistent_typical_range_stations():
     stations = build_station_list()
     x = floodsystem.station.inconsistent_typical_range_stations(stations)
-    assert len(x) == 28
+    assert len(x) == 30
 

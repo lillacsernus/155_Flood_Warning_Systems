@@ -20,9 +20,26 @@ def test_stations_within_radius():
 
 
 def test_rivers_with_station():
-    stations = build_station_list()
-    z = floodsystem.geo.rivers_with_station(stations)
-    assert len(z) == 951
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s_i = "test-s-id"
+    m_i = "test-m-id"
+    labe = "some station"
+    coor = (-2.0, 4.0)
+    trang = (-2.3, 3.4445)
+    rive = "River X"
+    tow = "My Town"
+    d = MonitoringStation(s_i, m_i, labe, coor, trang, rive, tow)
+    t = [s, d]
+    x = floodsystem.geo.rivers_with_station(t)
+    assert x == {'River X'}
+   
 
 
 def test_stations_by_river():
@@ -36,6 +53,6 @@ def test_rivers_by_station_number():
     stations = build_station_list()
     x = floodsystem.geo.rivers_by_station_number(stations,9)
     x = dict(x)
-    assert x['River Thames'] == 54
+    assert x['River Thames'] == 55
 
 
