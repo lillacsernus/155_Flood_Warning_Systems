@@ -53,6 +53,6 @@ def test_rivers_by_station_number():
     stations = build_station_list()
     x = floodsystem.geo.rivers_by_station_number(stations,9)
     x = dict(x)
-    assert x['River Thames'] == 55
+    assert x['River Thames'] == 54
 
 
